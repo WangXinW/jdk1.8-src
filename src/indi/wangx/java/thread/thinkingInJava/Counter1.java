@@ -10,12 +10,17 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import org.junit.Test;
+
+
+
 public class Counter1 extends Applet {
 	private int count = 0;
 	private Button onOff = new Button("Toggle"), start = new Button("Start");
 	private TextField t = new TextField(10);
 	private boolean runFlag = true;
 
+	@Test
 	public void init() {
 		add(t);
 		start.addActionListener(new StartL());

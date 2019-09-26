@@ -9,8 +9,14 @@ public class WriteSomeBytes
   static private final byte message[] = { 83, 111, 109, 101, 32,
                                           98, 121, 116, 101, 115, 46 };
 
-  static public void main( String args[] ) throws Exception {
-    FileOutputStream fout = new FileOutputStream( "writesomebytes.txt" );
+  public static void main( String[] args) {
+    FileOutputStream fout = null;
+	try {
+		fout = new FileOutputStream( "writesomebytes.txt" );
+	} catch (FileNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 
     FileChannel fc = fout.getChannel();
 
@@ -22,8 +28,16 @@ public class WriteSomeBytes
 
     buffer.flip();
 
-    fc.write( buffer );
+    try {
+		fc.write( buffer );
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
 
-    fout.close();
+    try {
+		fout.close();
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
   }
 }
