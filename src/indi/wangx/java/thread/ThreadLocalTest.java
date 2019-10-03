@@ -19,6 +19,7 @@ public class ThreadLocalTest {
 	public void testThreadLocal() {
 		for (int j = 0;j < 10;j++) {
 			Thread t = new Thread(new innerThread());
+			t.start();
 			System.out.println(tl.get());
 		}
 	}
